@@ -1,0 +1,199 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.contador {
+    font-size: 36px; /* Reducido el tamaño del número */
+    font-weight: bold;
+    color: #28a745;
+    margin: 10px 0; /* Menos espacio arriba y abajo */
+}
+.contenedor {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px;
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('fondo3.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Tarjeta del mensaje */
+.mensaje {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2vw;  /* Se adapta al ancho de la pantalla */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 40vw; /* Cambia dinámicamente según el tamaño del viewport */
+    min-width: 300px; /* Evita que sea demasiado pequeña */
+    transition: all 0.3s ease; /* Suaviza el cambio de tamaño */
+}
+
+/* Tarjeta lateral */
+.ventana-der {
+    width: 15%; /* Reducido del 20% al 15% */
+    padding: 15px; /* Menos padding para hacerla más compacta */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-left: 20px;
+    text-align: center;
+    animation: flotar 3s ease-in-out infinite;
+}
+.ventana-der p {
+    font-size: 14px; /* Reducir el tamaño del texto */
+    margin: 5px 0;
+}
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 10vw;  /* Se adapta al ancho */
+    min-width: 60px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+input, button {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Estilo del modal */
+.modal {
+    display: none;  /* Oculto al inicio */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Contenido del modal */
+.modal-contenido {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de cerrar */
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Adaptabilidad en móviles */
+@media screen and (max-width: 768px) {
+    .mensaje, .ventana-der {
+        width: 90vw; /* Ocupa casi todo el ancho */
+        min-width: 250px;
+    }
+
+    .mensaje {
+        padding: 5vw;
+    }
+
+    input, button {
+        width: 95%;
+        font-size: 16px;
+    }
+
+    .contador {
+        font-size: 36px;
+    }
+
+    .whatsapp-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .logo {
+        position: relative;
+        display: block;
+        margin: 20px auto; /* Centrar completamente */
+        left: auto; /* Eliminar la posición a la izquierda */
+        right: auto;
+        width: 20vw; /* Aumentar tamaño para mejor visibilidad */
+        min-width: 80px;
+        opacity: 1;
+    }
+
+    .ventana-der {
+        width: 40%; /* En tablets y móviles, ocupa más espacio */
+        margin: 10px auto; /* Centrar en dispositivos pequeños */
+    }
+    .contador {
+        font-size: 30px;
+    }
+    .ventana-der p {
+        font-size: 12px;
+    }
+}
